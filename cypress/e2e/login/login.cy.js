@@ -1,4 +1,7 @@
 /// <reference types="cypress" />
+import Login from "../../PageObjects/LoginPage";
+
+const LOGIN_REF = new Login();
 
 describe('Login to the application', () => {
   beforeEach(() => {
@@ -17,10 +20,11 @@ describe('Login to the application', () => {
     cy.get('.oxd-text oxd-text--p oxd-alert-content-text').should('contain', /Invalid credentials/);
   })
 
+  // Using POM approach
   it('Ensure login user can not login with  username and invalid password', () => {
-    cy.get('[name="username"]').type('Admin');
-    cy.get('[name="password"]').type('invalid');
-    cy.get('[type="submit"]').click();
+    LOGIN_REF.setUserName('Admin');
+    LOGIN_REF.setPassword('invalid');
+    LOGIN_REF.clickSubmit();
     cy.get('.oxd-text oxd-text--p oxd-alert-content-text').should('contain', /Invalid credentials/);
   })
 
