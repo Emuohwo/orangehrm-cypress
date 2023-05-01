@@ -5,11 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx cypress open"
+    "start": "npx cypress open",
+    "report": "npx cypress run"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cypress": "^12.10.0"
+    "cypress": "^12.10.0",
+    "cypress-mochawesome-reporter": "^3.4.0"
   }
 }
